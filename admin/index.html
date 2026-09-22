@@ -1,1 +1,59 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Admin | StarWakeVr</title><link rel="stylesheet" href="/styles.css"><style>.admin{max-width:960px;margin:auto;padding:80px 24px}.admin select,.admin textarea{width:100%;background:#0c1023;color:#f6f8ff;border:1px solid var(--line);border-radius:12px;padding:12px;font:14px/1.5 'DM Mono',monospace}.admin textarea{min-height:520px;margin-top:14px}.admin .bar{display:flex;gap:12px;align-items:center;flex-wrap:wrap}.admin .status{color:var(--muted)}</style></head><body><main class="admin"><a class="brand" href="/"><img src="/assets/logo.png" alt="StarWakeVr"></a><h1>Site Admin</h1><div id="login"><p class="lead">Sign in with an approved Discord account to edit the live site.</p><a class="button primary" href="/api/auth/discord">Sign in with Discord</a></div><div id="editor" hidden><p class="status">Changes are saved to GitHub and deployed by Vercel.</p><div class="bar"><select id="file"><option value="index.html">Home page</option><option value="games/index.html">Games page</option><option value="games/scary-baboon-legacy/index.html">LEGACY game page</option><option value="games/scary-baboon-legacy-v2/index.html">V2 game page</option><option value="about/index.html">About page</option><option value="creators/index.html">Creators page</option><option value="contact/index.html">Contact page</option><option value="privacy/index.html">Privacy directory</option><option value="privacy/scary-baboon-legacy/index.html">LEGACY privacy policy</option><option value="privacy/scary-baboon-legacy-v2/index.html">V2 privacy policy</option><option value="styles.css">Site design (CSS)</option></select><button class="button" id="load">Load</button><button class="button primary" id="save">Save & Deploy</button><a class="button" href="/api/admin/logout">Sign out</a></div><textarea id="content" spellcheck="false" aria-label="File content"></textarea><p class="status" id="message"></p></div></main><script src="/admin/admin.js"></script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Admin | StarWakeVr</title>
+<link rel="stylesheet" href="/styles.css">
+<style>.admin{max-width:960px;margin:auto;padding:80px 24px}.admin select,.admin textarea,.admin input{width:100%;background:#0c1023;color:#f6f8ff;border:1px solid var(--line);border-radius:12px;padding:12px;font:14px/1.5 'Space Grotesk',sans-serif}.admin textarea{min-height:520px;margin-top:14px;font-family:'DM Mono',monospace}.admin .bar{display:flex;gap:12px;align-items:center;flex-wrap:wrap}.admin .status{color:var(--muted)}.quick-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:28px 0}.quick-card{padding:22px;border:1px solid var(--line);border-radius:18px;background:#0c1023}.quick-card h2{font-size:1.35rem;margin:0 0 14px}.quick-card label{display:block;font-size:.85rem;color:var(--muted);margin:12px 0 5px}.advanced{margin-top:24px}.advanced summary{cursor:pointer;color:var(--muted)}@media(max-width:700px){.quick-grid{grid-template-columns:1fr}}</style>
+</head>
+<body>
+<main class="admin">
+<a class="brand" href="/">
+<img src="/assets/logo.png" alt="StarWakeVr">
+</a>
+<h1>Site Admin</h1>
+<div id="login">
+<p class="lead">Sign in with an approved Discord account to edit the live site.</p>
+<a class="button primary" href="/api/auth/discord">Sign in with Discord</a>
+</div>
+<div id="editor" hidden>
+<p class="status">Changes are saved to GitHub and deployed by Vercel.</p>
+<div class="quick-grid">
+<section class="quick-card"><h2>Website</h2><label for="home-title">Home title</label><input id="home-title"><label for="home-tagline">Home text</label><input id="home-tagline"><label for="contact-email">Contact email</label><input id="contact-email" type="email"></section>
+<section class="quick-card"><h2>Creators</h2><label for="studio-owner">Studio owner</label><input id="studio-owner"><label for="legacy-creator">LEGACY creator</label><input id="legacy-creator"><label for="v2-creator">V2 creator</label><input id="v2-creator"></section>
+<section class="quick-card"><h2>Scary Baboon LEGACY</h2><label for="legacy-store">Meta Store link</label><input id="legacy-store" type="url"><label for="discord-link">Discord invite</label><input id="discord-link" type="url"></section>
+<section class="quick-card"><h2>Scary Baboon LEGACY V2</h2><label for="v2-store">Meta Store link</label><input id="v2-store" type="url"><p class="status">Both games use the same Discord invite.</p></section>
+</div>
+<button class="button primary" id="save-quick">Save changes</button>
+<p class="status" id="quick-message"></p>
+<details class="advanced"><summary>Advanced editor — use only for full page or privacy-policy changes</summary>
+<div class="bar">
+<select id="file">
+<option value="index.html">Home page</option>
+<option value="games/index.html">Games page</option>
+<option value="games/scary-baboon-legacy/index.html">LEGACY game page</option>
+<option value="games/scary-baboon-legacy-v2/index.html">V2 game page</option>
+<option value="about/index.html">About page</option>
+<option value="creators/index.html">Creators page</option>
+<option value="contact/index.html">Contact page</option>
+<option value="privacy/index.html">Privacy directory</option>
+<option value="privacy/scary-baboon-legacy/index.html">LEGACY privacy policy</option>
+<option value="privacy/scary-baboon-legacy-v2/index.html">V2 privacy policy</option>
+<option value="styles.css">Site design (CSS)</option>
+</select>
+<button class="button" id="load">Load</button>
+<button class="button primary" id="save">Save & Deploy</button>
+<a class="button" href="/api/admin/logout">Sign out</a>
+</div>
+<textarea id="content" spellcheck="false" aria-label="File content">
+</textarea>
+<p class="status" id="message">
+</p>
+</details>
+</div>
+</main>
+<script src="/admin/admin.js">
+</script>
+</body>
+</html>
