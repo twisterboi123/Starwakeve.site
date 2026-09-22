@@ -1,0 +1,3 @@
+document.querySelector('.menu')?.addEventListener('click',e=>{const n=document.querySelector('.links');n.classList.toggle('open');e.currentTarget.setAttribute('aria-expanded',n.classList.contains('open'))});
+document.querySelectorAll('img.art').forEach(img=>{if(img.complete&&!img.naturalWidth)img.classList.add('image-missing');img.addEventListener('error',()=>img.classList.add('image-missing'))});
+document.querySelectorAll('nav.links, .footer nav').forEach(nav=>{if(!nav.querySelector('[href="/creators/"]')){const a=document.createElement('a');a.href='/creators/';a.textContent='Creators';if(location.pathname==='/creators/'||location.pathname==='/creators')a.setAttribute('aria-current','page');nav.append(a)}});

@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root{--ink:#050714;--panel:#0c1023;--line:rgba(255,255,255,.12);--muted:#aab2cc;--cyan:#67e5ff;--violet:#8b7bff;--pink:#ec66c8;--max:1180px}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ink);color:#f6f8ff;font:16px/1.6 'Space Grotesk',sans-serif;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.32;background-image:radial-gradient(#fff 1px,transparent 1px);background-size:60px 60px;mask-image:linear-gradient(#000,transparent 85%)}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(var(--max),calc(100% - 48px));margin:auto}
+.skip{position:absolute;left:-999px}
+.skip:focus{left:1rem;top:1rem;z-index:30;background:#fff;color:#000;padding:.6rem}
+.nav{position:sticky;top:0;z-index:20;background:rgba(5,7,20,.78);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+.navin{height:76px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;font-size:0}
+.brand img{width:42px;height:42px;object-fit:contain}
+.brand i{display:none}
+.links{display:flex;gap:1.45rem}
+.links a{color:var(--muted);font-size:.92rem}
+.links a:hover,.links a[aria-current]{color:#fff}
+.menu{display:none;background:transparent;color:#fff;border:0;font-size:1.5rem}
+.hero{min-height:720px;display:grid;place-items:center;position:relative;text-align:center;background:radial-gradient(circle at 50% 32%,#192d68 0,transparent 32%),radial-gradient(circle at 75% 65%,#402b62 0,transparent 28%)}
+.hero:after{content:"";position:absolute;width:650px;height:650px;border:1px solid rgba(103,229,255,.2);border-radius:50%;box-shadow:0 0 100px #466fe033;animation:drift 11s ease-in-out infinite}
+.hero .wrap{position:relative;z-index:1}
+.eyebrow{font:500 .74rem 'DM Mono',monospace;letter-spacing:.16em;color:var(--cyan);text-transform:uppercase}
+.hero h1{font-size:clamp(3.3rem,8vw,7.4rem);line-height:.93;letter-spacing:-.075em;max-width:950px;margin:.8rem auto 1.4rem}
+.hero p{font-size:clamp(1.05rem,2vw,1.3rem);max-width:620px;margin:0 auto;color:#ced5ec}
+.actions{display:flex;justify-content:center;gap:.8rem;flex-wrap:wrap;margin-top:2.2rem}
+.button{display:inline-flex;align-items:center;justify-content:center;padding:.78rem 1.1rem;border-radius:999px;border:1px solid var(--line);font-weight:600;transition:.2s}
+.button.primary{background:var(--cyan);color:#04101c;border-color:var(--cyan)}
+.button:hover{transform:translateY(-2px);box-shadow:0 10px 28px #67e5ff22}
+.section{padding:110px 0}
+.section.dark{background:linear-gradient(120deg,#0a0e20,#0b1027)}
+h2{font-size:clamp(2.25rem,5vw,4.4rem);line-height:1;letter-spacing:-.065em;margin:.55rem 0 2.6rem}
+.lead{color:var(--muted);max-width:630px;font-size:1.13rem}
+.game-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.game-card{min-height:500px;position:relative;overflow:hidden;border:1px solid var(--line);border-radius:26px;background:#11172a;display:flex;flex-direction:column;align-items:stretch}
+.game-card:before{display:none}
+.game-card .art{position:static;width:100%;height:205px;object-fit:contain;background:#050714;border-bottom:1px solid var(--line)}
+.art.image-missing{display:none}
+.game-copy{position:relative;padding:1.7rem 2rem 2rem;width:100%;background:#0c1023;flex:1}
+.game-copy h3{font-size:2rem;letter-spacing:-.05em;line-height:1.02;margin:.6rem 0}
+.tag{font:500 .72rem 'DM Mono',monospace;color:var(--cyan);letter-spacing:.08em;text-transform:uppercase}
+.card-actions{display:flex;gap:.7rem;flex-wrap:wrap;margin-top:1.35rem}
+.coming{border:1px dashed #687098;border-radius:24px;padding:3rem;background:radial-gradient(circle at 20% 20%,#22275e,transparent 30%);margin-top:24px}
+.coming h3{font-size:2rem;margin:0}
+.pagehead{padding:100px 0 54px;background:radial-gradient(circle at 80% 0,#243d70,transparent 42%)}
+.pagehead h1{font-size:clamp(3.1rem,7vw,6.2rem);line-height:.94;letter-spacing:-.075em;margin:.7rem 0}
+.pagehead p{color:var(--muted);max-width:650px}
+.game-hero{min-height:530px;display:flex;align-items:end;position:relative;background:#101426;overflow:hidden}
+.game-hero .art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.game-hero:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#060815,transparent 75%)}
+.game-hero .wrap{position:relative;z-index:1;padding-bottom:60px}
+.game-hero h1{display:none}
+.meta{display:flex;gap:2rem;flex-wrap:wrap;color:#d3daf1}
+.meta b{display:block;color:var(--cyan);font:500 .68rem 'DM Mono',monospace;letter-spacing:.12em;text-transform:uppercase}
+.info-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:70px}
+.info-grid h2{font-size:2.3rem}
+.detail{border-top:1px solid var(--line);padding:1.25rem 0;color:var(--muted)}
+.privacy-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.privacy-card{border:1px solid var(--line);border-radius:20px;padding:2rem;background:linear-gradient(145deg,#121933,#080b18)}
+.privacy-card h2{font-size:1.8rem;margin:1rem 0}
+.policy{display:grid;grid-template-columns:210px minmax(0,760px);gap:60px;align-items:start}
+.toc{position:sticky;top:100px;font-size:.86rem;color:var(--muted)}
+.toc a{display:block;padding:.25rem 0}
+.legal{font-family:'Space Grotesk',sans-serif;color:#dfe4f3}
+.legal h2{font-size:1.6rem;margin:2.7rem 0 .7rem;letter-spacing:-.035em}
+.legal p{margin:.6rem 0 1rem}
+.footer{border-top:1px solid var(--line);padding:50px 0;color:var(--muted)}
+.footerin{display:flex;justify-content:space-between;gap:2rem;flex-wrap:wrap}
+.footer strong{color:white}
+.footer nav{display:flex;gap:1rem;flex-wrap:wrap}
+.notice{border:1px solid #f6d46755;background:#f6d46712;padding:1rem;border-radius:12px;color:#e8e9f3;font-size:.9rem}
+@keyframes drift{50%{transform:translateY(24px) scale(1.04)}
+}
+@media(max-width:700px){.wrap{width:min(100% - 32px,var(--max))}
+.links{display:none;position:absolute;top:76px;left:0;right:0;padding:1rem 1.5rem 1.5rem;background:#080b19;flex-direction:column;border-bottom:1px solid var(--line)}
+.links.open{display:flex}
+.menu{display:block}
+.hero{min-height:620px}
+.section{padding:75px 0}
+.game-grid,.privacy-grid,.info-grid,.policy{grid-template-columns:1fr}
+.game-card{min-height:460px}
+.toc{display:none}
+.pagehead{padding:75px 0 42px}
+.game-hero{min-height:500px}
+.game-hero .wrap{padding-bottom:38px}
+}
